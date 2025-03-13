@@ -1,0 +1,10 @@
+# Use a Windows Server base image (requires Windows containers)
+FROM mcr.microsoft.com/windows/server:ltsc2022
+
+SHELL ["powershell", "-Command"]
+
+RUN Invoke-WebRequest -Uri "https://raw.githubusercontent.com/thenameiswiiwin/.dotfiles/main/resources/setup" -OutFile "C:\setup.ps1"
+RUN powershell -File "C:\setup.ps1"
+
+CMD ["powershell.exe"]
+
