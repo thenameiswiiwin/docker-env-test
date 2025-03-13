@@ -1,9 +1,5 @@
 FROM alpine:latest
-
-RUN apk add --no-cache curl git
-
-WORKDIR /root
-RUN curl -fsSL https://raw.githubusercontent.com/thenameiswiiwin/.dotfiles/main/resources/setup | bash
-
-CMD ["/bin/sh"]
-
+RUN apk add --no-cache curl git zsh sudo
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+CMD ["/entrypoint.sh"]

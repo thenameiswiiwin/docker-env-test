@@ -1,9 +1,5 @@
-FROM archlinux:latest
-
-RUN pacman -Sy --noconfirm curl git
-
-WORKDIR /root
-RUN curl -fsSL https://raw.githubusercontent.com/thenameiswiiwin/.dotfiles/main/resources/setup | bash
-
-CMD ["/bin/bash"]
-
+FROM archlinux:base
+RUN pacman -Sy --noconfirm curl git zsh sudo
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+CMD ["/entrypoint.sh"]

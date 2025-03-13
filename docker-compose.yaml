@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile.ubuntu
     container_name: test-ubuntu
     tty: true
+    platform: linux/amd64
 
   arch:
     build:
@@ -14,6 +15,7 @@ services:
       dockerfile: Dockerfile.arch
     container_name: test-arch
     tty: true
+    platform: linux/amd64
 
   alpine:
     build:
@@ -21,6 +23,7 @@ services:
       dockerfile: Dockerfile.alpine
     container_name: test-alpine
     tty: true
+    platform: linux/amd64
 
   windows:
     build:
@@ -28,3 +31,7 @@ services:
       dockerfile: Dockerfile.windows
     container_name: test-windows
     tty: true
+    platform: windows/amd64
+    deploy:
+      replicas: 0 # Prevents deployment on macOS/Linux
+
