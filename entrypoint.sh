@@ -2,6 +2,7 @@
 set -euo pipefail
 
 echo "Downloading and running setup script..."
+export DEV_ENV=$HOME/dev
 curl -fsSL https://raw.githubusercontent.com/thenameiswiiwin/.dotfiles/main/resources/setup -o ~/setup.sh
 chmod +x ~/setup.sh
 bash ~/setup.sh
